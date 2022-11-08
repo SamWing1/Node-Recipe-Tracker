@@ -6,8 +6,8 @@ const recipeSchema = new Schema (
     recipe_id: { type : mongoose.Schema.Types.ObjectId, ref: 'Recipe'},
     name: String,
     prepTime: Number,
-    ingredients: [ingredientsSchema],
-    user: [userSchema]
+    ingredients: String,
+    // user: [userSchema]
     },
   );
 

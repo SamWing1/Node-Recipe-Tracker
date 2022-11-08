@@ -16,8 +16,27 @@
       <li><a href="/">Main</a></li>
       <li><a href="/recipe/new">Add Recipe</a></li>
       <li><a href="/ingredient/new">Add Ingredient</a></li>
-      <li><a href="/recipe/index">Recipe List</a></li>
       <li><a href="/logout">Log Out</a></li>
+
+      <h1>Recipe List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Prep Time</th>
+        <th>Ingredients</th>
+      </tr>
+      <tbody>
+        <% recipe.forEach(function(r) { %>
+          <tr>
+            <td><%= r.name %></td>
+            <td><%= r.prepTime %></td>
+            <td><%= r.ingredients %></td>
+          </tr>
+          <% }); %>
+      </tbody>
+
+    </thead>
       <% } else { %>
         <li><a href="/auth/google">Log In</a></li>
         <% } %>

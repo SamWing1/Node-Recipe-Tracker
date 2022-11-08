@@ -10,8 +10,8 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Home / Public Page" });
 });
 
-router.get("/private", isLoggedIn, function (req, res) {
-  res.render("private", { title: "Private Page" });
+router.get("/recipe/new", isLoggedIn, function (req, res) {
+  res.render("recipe/new", { title: "Add Recipe" });
 });
 
 // OAuth Routes
