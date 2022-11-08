@@ -17,8 +17,11 @@
       <li><a href="/recipe/new">Add Recipe</a></li>
       <li><a href="/ingredient/new">Add Ingredient</a></li>
       <li><a href="/logout">Log Out</a></li>
-
-      <h1>Recipe List</h1>
+      <% } else { %>
+        <li><a href="/auth/google">Log In</a></li>
+        <% } %>
+  </ul>
+  <h1>Recipe List</h1>
   <table>
     <thead>
       <tr>
@@ -37,10 +40,6 @@
       </tbody>
 
     </thead>
-      <% } else { %>
-        <li><a href="/auth/google">Log In</a></li>
-        <% } %>
-  </ul>
 </body>
 
 </html>

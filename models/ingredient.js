@@ -5,7 +5,6 @@ const ingredientSchema = new Schema (
     {
     ingredient_id: { type : mongoose.Schema.Types.ObjectId, ref: 'Ingredient'},
     name: String,
-    prepTime: Number,
     region: String,
     },
   );

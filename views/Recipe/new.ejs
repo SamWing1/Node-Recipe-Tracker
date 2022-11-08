@@ -14,9 +14,11 @@
             <li><a href="/">Home</a></li>
             <li><a href="/private">Private Page</a></li>
             <li><a href="/logout">Log Out</a></li>
-            
-            
-            <h1>Add Recipe</h1>
+            <% } else { %>
+                <li><a href="/auth/google">Log In</a></li>
+                <% } %>
+    </ul>
+    <h1>Add Recipe</h1>
 <form action="/recipe" method="POST">
   <label>Recipe Name:
     <input type="string" name="name">
@@ -29,10 +31,6 @@
   </label><br>
   <input type="submit" value="Add Recipe">
 </form>
-            <% } else { %>
-                <li><a href="/auth/google">Log In</a></li>
-                <% } %>
-    </ul>
 </body>
 
 </html>

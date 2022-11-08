@@ -18,6 +18,50 @@
                 <li><a href="/auth/google">Log In</a></li>
                 <% } %>
     </ul>
+
+    <h2>Recipe</h2>
+
+    <div>Name: </div>
+    <div><%= recipe.name %></div>
+    <div>Prep Time: </div>
+    <div><%= recipe.prepTime %></div>
+    <div>Ingredients: </div>
+    <div><%= recipe.ingredients %></div>
+
+    <h3>Notes</h3>
+    <form id="add-comment-form" method="POST"
+  action="/recipe/<%= recipe._id %>/comment">
+  <label>Comment</label>
+  <textarea name="content"></textarea>
+  <label>Would you recommend this recipe?</label>
+  <select name="recommend">
+    <option value="Yes!">Yes!</option>
+    <option value="Maybe">Maybe</option>
+    <option value="No!">No!</option>
+  </select>
+  <input type="submit" value="Add Note">
+
+  <% if (recipe.comment.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Note</th>
+          <th>Recommendation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% recipe.comment.forEach(function(c) { %>
+          <tr>
+            <td><%= c.content %></td>
+            <td><%= c.recommend %></td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Notes Yet</h5>
+  <% } %>
+
 </body>
 
 </html>
