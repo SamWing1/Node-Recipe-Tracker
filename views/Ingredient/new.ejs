@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Add Recipe
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <ul>
+        <% if (user) { %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/private">Private Page</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <% } else { %>
+                <li><a href="/auth/google">Log In</a></li>
+                <% } %>
+
+                <section id="badge-container">
+                    <% ingredient.forEach(function(i) { %>
+                      <article class="badge"><%= i.name %></article>
+                    <% }) %>
+                  </section>
+                
+                <h2>Add Ingredient</h2>
+                <form action="/ingredient" method="POST">
+                    <label>Ingredient Name:
+                        <input type="string" name="name">
+                    </label><br>
+                    <label>Region of Origin:
+                        <input type="string" name="region">
+                    </label>
+                    <br>
+                    <input type="submit" value="Add Ingredient">
+
+                    
+                </body>
+                    
+</html>

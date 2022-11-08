@@ -16,7 +16,7 @@ function create(req, res) {
     recipe.save(function(err) {
         if (err) return res.redirect('recipe/new');
         console.log(recipe);
-        res.redirect('/');
+        res.redirect(`/recipe/${recipe._id}`);
     });
 };
 
