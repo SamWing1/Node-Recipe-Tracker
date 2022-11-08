@@ -24,15 +24,15 @@
       <tr>
         <th>Name</th>
         <th>Prep Time</th>
-        <th>Ingredients</th>
+        <th>Show More</th>
       </tr>
       <tbody>
         <% recipe.forEach(function(r) { %>
           <tr>
             <td><%= r.name %></td>
             <td><%= r.prepTime %></td>
-            <td><%= r.ingredients %></td>
-          </tr>
+            <td><a href="/recipe/<%= r._id %>">DETAILS</a></td>
+        </tr>
           <% }); %>
       </tbody>
 

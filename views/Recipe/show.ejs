@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Add Recipe
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <ul>
+        <% if (user) { %>
+            <li><a href="/">Home</a></li>
+            <li><a href="/private">Private Page</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <% } else { %>
+                <li><a href="/auth/google">Log In</a></li>
+                <% } %>
+    </ul>
+</body>
+
+</html>
