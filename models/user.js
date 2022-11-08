@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
+    user_id: { type : mongoose.Schema.Types.ObjectId, ref: 'User'},
     name: String,
     googleId: {
       type: String,
       required: true,
     },
     email: String,
-    avatar: String,
   },
   { timeStamps: true }
 );
