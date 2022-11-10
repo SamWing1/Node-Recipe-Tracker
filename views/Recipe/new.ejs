@@ -14,9 +14,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/private">Private Page</a></li>
             <li><a href="/logout">Log Out</a></li>
-            <% } else { %>
-                <li><a href="/auth/google">Log In</a></li>
-                <% } %>
+            
     </ul>
     <h1>Add Recipe</h1>
 <form action="/recipe" method="POST">
@@ -30,4 +28,7 @@
 </form>
 </body>
 
+<% } else { %>
+    <li><a href="/auth/google">Log In</a></li>
+    <% } %>
 </html>

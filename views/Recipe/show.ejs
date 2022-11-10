@@ -14,9 +14,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/private">Private Page</a></li>
             <li><a href="/logout">Log Out</a></li>
-            <% } else { %>
-                <li><a href="/auth/google">Log In</a></li>
-                <% } %>
+            
     </ul>
 
     <h2>Recipe</h2>
@@ -92,6 +90,10 @@
   <% } else { %>
     <h5>No Ingredients Yet</h5>
   <% } %>
+
+  <% } else { %>
+    <li><a href="/auth/google">Log In</a></li>
+    <% } %>
 
 </body>
 </html>
