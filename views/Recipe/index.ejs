@@ -24,7 +24,7 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Prep Time</th>
+        <th>Minutes to Prepare</th>
         <th>Show More</th>
       </tr>
       <tbody>
@@ -33,6 +33,9 @@
             <td><%= r.name %></td>
             <td><%= r.prepTime %></td>
             <td><a href="/recipe/<%= r._id %>">DETAILS</a></td>
+            <td><form action="/recipe/<%= r._id %>?_method=DELETE"
+              id="delete-form" method="POST">
+              <button type="submit">X</button></form></td>
         </tr>
           <% }); %>
       </tbody>

@@ -5,7 +5,8 @@ module.exports = {
     new: newRecipe,
     create,
     index,
-    show
+    show,
+    delete: deleteRecipe,
 }
 
 function newRecipe(req, res) {
@@ -34,8 +35,14 @@ function show(req, res) {
         if (err) console.log(err)
         Ingredient.find({_id: {$nin: recipe.ingredients}})
         .exec(function(err, ingredients) {
-            console.log(ingredients)
             res.render('recipe/show', {title: recipe.name, recipe, ingredients})
         })
     })
-    };
+};
+
+function deleteRecipe(req, res) {
+    Recipe.deleteOne( {
+       _id: req.params.id}, function(err){
+           res.redirect('/recipe/index');
+       });
+  }
