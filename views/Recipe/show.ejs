@@ -23,10 +23,8 @@
 
     <div>Name: </div>
     <div><%= recipe.name %></div>
-    <div>Prep Time: </div>
+    <div>Minutes to Cook: </div>
     <div><%= recipe.prepTime %></div>
-    <div>Ingredients: </div>
-    <div><%= recipe.ingredients %></div>
 
     <h3>Notes</h3>
     <form id="add-comment-form" method="POST"
@@ -40,13 +38,13 @@
     <option value="No!">No!</option>
   </select>
   <input type="submit" value="Add Note">
-
+  </form>
   <% if (recipe.comment.length) { %>
     <table>
       <thead>
         <tr>
           <th>Note</th>
-          <th>Recommendation</th>
+          <th>Recommended?</th>
         </tr>
       </thead>
       <tbody>
@@ -62,6 +60,38 @@
     <h5>No Notes Yet</h5>
   <% } %>
 
-</body>
+    <h4>Ingredients</h4>
+    <form id="add-ingredient-form" method="POST"
+  action="/recipe/<%= recipe._id %>/ingredient">
+  <label>Add Ingredient</label>
+  <select name="ingredientId">
+    <% ingredients.forEach(function(ingredient) { %>
+        <option value="<%= ingredient.id %>"> <%= ingredient.name %></option>
+    <% }) %>
+</select>
+  <input type="submit" value="Add Ingredient">
+    </form>
 
+  <% if (recipe.ingredients.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Region</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% recipe.ingredients.forEach(function(i) { %>
+          <tr>
+            <td><%= i.name %></td>
+            <td><%= i.region %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Ingredients Yet</h5>
+  <% } %>
+
+</body>
 </html>

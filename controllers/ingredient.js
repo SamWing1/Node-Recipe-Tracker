@@ -3,7 +3,8 @@ const Ingredient = require('../models/ingredient');
 
 module.exports = {
   new: newIngredient,
-  create
+  create,
+  addToRecipe
 };
 
 function newIngredient(req, res) {
@@ -20,3 +21,14 @@ function create(req, res) {
         res.redirect('/ingredient/new');
     });
 };
+
+function addToRecipe(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe) {
+        console.log(req.body)
+      recipe.ingredients.push(req.body.ingredientId);
+      recipe.save(function(err) {
+          console.log(recipe)
+          res.redirect(`/recipe/${recipe._id}`);
+      });
+    });
+  }

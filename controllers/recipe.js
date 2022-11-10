@@ -1,10 +1,11 @@
 const Recipe = require('../models/recipe');
+const Ingredient = require('../models/ingredient')
 
 module.exports = {
     new: newRecipe,
     create,
     index,
-    show,
+    show
 }
 
 function newRecipe(req, res) {
@@ -28,8 +29,13 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Recipe.findById(req.params.id, function(err, recipe) {
-        // Comment.find({recipe: recipe._id}, function(err, comment) {
-        res.render('recipe/show', {title: 'Recipe Detail', recipe });
+    Recipe.findById(req.params.id).populate('ingredients')
+    .exec(function(err, recipe) {
+        if (err) console.log(err)
+        Ingredient.find({_id: {$nin: recipe.ingredients}})
+        .exec(function(err, ingredients) {
+            console.log(ingredients)
+            res.render('recipe/show', {title: recipe.name, recipe, ingredients})
         })
+    })
     };

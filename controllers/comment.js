@@ -1,4 +1,5 @@
 const Recipe = require('../models/recipe');
+const Ingredient = require('../models/ingredient')
 
 module.exports = {
   create
@@ -6,10 +7,11 @@ module.exports = {
 
 function create(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
+        console.log(req.body)
       recipe.comment.push(req.body);
       recipe.save(function(err) {
-          res.redirect(`/recipe/${recipe._id}`);
           console.log(recipe)
+          res.redirect(`/recipe/${recipe._id}`);
       });
     });
   }
