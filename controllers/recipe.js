@@ -7,6 +7,8 @@ module.exports = {
     index,
     show,
     delete: deleteRecipe,
+    edit,
+    update
 }
 
 function newRecipe(req, res) {
@@ -46,3 +48,33 @@ function deleteRecipe(req, res) {
            res.redirect('/recipe/index');
        });
   }
+
+  function edit(req, res) {
+    console.log(Recipe)
+    console.log(req.params.id)
+    res.render('recipe/edit', {
+      recipe: Recipe( {
+        _id: req.params.id}), function(err){
+            console.log(Recipe)
+            res.redirect(`/recipe/${recipe._id}`)
+            console.log(Recipe)
+        }
+    });
+  }
+
+  function update(req, res, next) {
+    Recipe.findOne({
+        _id: req.params.id
+    })
+    .then (function(recipe){
+        recipe.name=req.body.name
+        recipe.prepTime=req.body.prepTime
+        recipe.save()
+    })
+    .then (function(err, recipe){
+        res.redirect('/recipe/index');
+    })
+    .catch (function(err){
+        return next(err)
+    })
+}

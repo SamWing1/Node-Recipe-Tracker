@@ -3,13 +3,13 @@
 
 <head>
   <title>
-    <%= title %>
   </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-  <p>Welcome to <%= title %>
+  <p>Welcome to
   </p>
   <ul>
     <% if (user) { %>
@@ -17,9 +17,41 @@
       <li><a href="/recipe/new">Add Recipe</a></li>
       <li><a href="/ingredient/new">Add Ingredient</a></li>
       <li><a href="/logout">Log Out</a></li>
-  </ul>
 
-  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/recipe/new">Add Recipe <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/ingredient/new">Add Ingredient <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/recipe/index">Recipe List <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/logout">Log Out <span class="sr-only">(current)</span></a>
+
+
+
+          </div>
+        </div>
+      </nav>
+      
+  </ul>
+  <h1>Edit Recipe</h1>
+  <form action="/recipe/<%= recipe._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Recipe Name:
+    <input type="string" name="name">
+  </label><br>
+  <label>Prep Time:
+    <input type="number" name="prepTime" placeholder="minutes to cook!">
+  </label><br>
+  <label>
+    <input type="string" placeholder="<%= recipe._id %>">
+  </label>
+  <input type="submit" value="Add Recipe">
+</form>
+
   <% } else { %>
     <li><a href="/auth/google">Log In</a></li>
     <% } %>

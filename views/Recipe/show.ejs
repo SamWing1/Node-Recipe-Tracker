@@ -50,6 +50,9 @@
           <tr>
             <td><%= c.content %></td>
             <td><%= c.recommend %></td>
+            <td><form action="/recipe/<%= recipe._id %>/comment/<%= c._id %>?_method=DELETE"
+              id="delete-form" method="POST">
+              <button type="submit">X</button></form></td>
           </tr>
           <% }); %>
       </tbody>
@@ -83,6 +86,9 @@
           <tr>
             <td><%= i.name %></td>
             <td><%= i.region %></td>
+            <td><form action="/recipe/<%= recipe._id %>/ingredient/<%= i._id %>?_method=DELETE"
+              id="delete-form" method="POST">
+              <button type="submit">X</button></form></td>
           </tr>
         <% }); %>
       </tbody>

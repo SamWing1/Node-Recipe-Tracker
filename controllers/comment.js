@@ -1,8 +1,8 @@
 const Recipe = require('../models/recipe');
-const Ingredient = require('../models/ingredient')
 
 module.exports = {
-  create
+  create,
+  delete: deleteComment
 };
 
 function create(req, res) {
@@ -14,4 +14,13 @@ function create(req, res) {
           res.redirect(`/recipe/${recipe._id}`);
       });
     });
+  }
+
+  function deleteComment(req, res) {
+    Recipe.findById(req.params.recipeid, function(err, recipe) {
+      recipe.comment.id(req.params.commentid).remove();
+      recipe.save(function(err) {
+      res.redirect(`/recipe/${recipe._id}`);
+            })
+       });
   }
