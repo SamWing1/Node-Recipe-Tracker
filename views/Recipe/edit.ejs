@@ -9,15 +9,7 @@
 </head>
 
 <body>
-  <p>Welcome to
-  </p>
-  <ul>
     <% if (user) { %>
-      <li><a href="/">Main</a></li>
-      <li><a href="/recipe/new">Add Recipe</a></li>
-      <li><a href="/ingredient/new">Add Ingredient</a></li>
-      <li><a href="/logout">Log Out</a></li>
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,14 +22,11 @@
             <a class="nav-item nav-link active" href="/ingredient/new">Add Ingredient <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="/recipe/index">Recipe List <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="/logout">Log Out <span class="sr-only">(current)</span></a>
-
-
-
           </div>
         </div>
       </nav>
       
-  </ul>
+  
   <h1>Edit Recipe</h1>
   <form action="/recipe/<%= recipe._id %>?_method=PUT" method="POST" autocomplete="off">
     <label>Recipe Name:
@@ -46,10 +35,10 @@
   <label>Prep Time:
     <input type="number" name="prepTime" placeholder="minutes to cook!">
   </label><br>
-  <label>
+  <label id="hide">
     <input type="string" placeholder="<%= recipe._id %>">
   </label>
-  <input type="submit" value="Add Recipe">
+  <input type="submit" value="Edit Recipe">
 </form>
 
   <% } else { %>

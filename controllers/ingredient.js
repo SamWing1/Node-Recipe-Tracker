@@ -36,7 +36,8 @@ function addToRecipe(req, res) {
 
 function deleteIngredient(req, res) {
     Recipe.findById(req.params.recipeid, function (err, recipe) {
-        console.log(recipe.ingredients)
+        console.log(req.params.ingredientid)
+        // recipe.ingredient.id(req.params.ingredientid).remove();
         recipe.save(function (err) {
             res.redirect(`/recipe/${recipe._id}`);
         })
