@@ -5,7 +5,7 @@ module.exports = {
     new: newIngredient,
     create,
     addToRecipe,
-    delete: deleteIngredient
+    // delete: deleteIngredient
 };
 
 function newIngredient(req, res) {
@@ -34,12 +34,18 @@ function addToRecipe(req, res) {
     });
 }
 
-function deleteIngredient(req, res) {
-    Recipe.findById(req.params.recipeid, function (err, recipe) {
-        console.log(req.params.ingredientid)
-        // recipe.ingredient.id(req.params.ingredientid).remove();
-        recipe.save(function (err) {
-            res.redirect(`/recipe/${recipe._id}`);
-        })
-    });
-}
+//cant figure out how to target specific new ObjectId atm, so leaving this out for now
+// function deleteIngredient(req, res) {
+//     Recipe.findById(req.params.recipeid, function (err, recipe) {
+//         console.log(req.params.ingredientid)
+//         console.log(recipe.ingredients)
+//         console.log(recipe.ingredients.indexOf(`new ObjectId("${req.params.id}")`))
+//         console.log(req.params.ingredients)
+//         recipe.ingredients.indexOf(req.params.ingredientId);
+//         recipe.save(function (err) {
+//             res.redirect(`/recipe/${recipe._id}`);
+//         })
+//     });
+// }
+
+//fix show page after you finish this

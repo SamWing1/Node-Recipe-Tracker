@@ -135,3 +135,17 @@ h4 {
   padding-top: 5px;
 }
 
+.recipe-edit {
+  background-image: url("https://i.imgur.com/s3nJeTW.png");
+  background-size: cover;
+}
+
+.edit-recipe-form {
+  background:rgba(239,239,240, 0.7);
+  width: fit-content;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  margin: auto;
+  font-size: 20px;
+}

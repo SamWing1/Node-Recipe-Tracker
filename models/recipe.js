@@ -16,7 +16,6 @@ const recipeSchema = new Schema (
     prepTime: Number,
     ingredients: [{type: Schema.Types.ObjectId, ref: 'Ingredient'}],
     comment: [commentSchema],
-    // user: [userSchema]
     },
   );
 

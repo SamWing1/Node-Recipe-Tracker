@@ -106,7 +106,7 @@
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Region</th>
-          <th scope="col">Delete</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -114,9 +114,7 @@
           <tr>
             <td><%= i.name %></td>
             <td><%= i.region %></td>
-            <td><form action="/recipe/<%= recipe._id %>/ingredient/<%= i._id %>?_method=DELETE"
-              id="delete-form" method="POST">
-              <button type="submit">X</button></form></td>
+            
           </tr>
         <% }); %>
       </tbody>
